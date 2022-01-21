@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tecnicasprogramacion.reto4;
+
 import java.util.Calendar;
-/**
- *
- * @author USUARIO
- */
+
 public class Vehiculo {
+    
+    // estamos en la rama experimental
+    
     //atributos
     private int id;
     private String placa;
@@ -21,8 +17,10 @@ public class Vehiculo {
     private String tipo;
     private String estadoVehiculo;
     private boolean vehEnReparacion;
+
     //constructores
-    public Vehiculo(int id, String placa, int antiguedad,String ant, String modelo, int anoModelo, double precioHora, String tipo, String estadoVehiculo, boolean vehEnReparacion) {
+    public Vehiculo(int id, String placa, int antiguedad, String ant, String modelo, int anoModelo, 
+            double precioHora, String tipo, String estadoVehiculo, boolean vehEnReparacion) {
         this.id = id;
         this.placa = placa;
         this.antiguedad = antiguedad;
@@ -34,8 +32,9 @@ public class Vehiculo {
         this.estadoVehiculo = estadoVehiculo;
         this.vehEnReparacion = vehEnReparacion;
     }
-    
-    public Vehiculo(int id, int antiguedad,String modelo, int anoModelo, double precioHora, String tipo, String estadoVehiculo, boolean vehEnReparacion){
+
+    public Vehiculo(int id, int antiguedad, String modelo, int anoModelo, double precioHora, 
+            String tipo, String estadoVehiculo, boolean vehEnReparacion) {
         this.id = id;
         this.antiguedad = antiguedad;
         this.modelo = modelo;
@@ -45,35 +44,29 @@ public class Vehiculo {
         this.estadoVehiculo = estadoVehiculo;
         this.vehEnReparacion = vehEnReparacion;
     }
-    //metodos
-    public void calAntiguedad(int anoModelo){
-    Calendar fechaA = Calendar.getInstance();
-    fechaA.get(Calendar.YEAR);
-     setAntiguedad(fechaA.get(Calendar.YEAR)-anoModelo);
-     if(getAntiguedad()>0 && getAntiguedad()<=1){
-        setAnt("Nuevo");
-        System.out.println("El vehiculo es: "+ getAnt());
-     }
-     else if(getAntiguedad()>1 && getAntiguedad()<=4){
-         setAnt("Medianamente usado");
-         System.out.println("El vehiculo es: "+ getAnt());
-     }
-     else if(getAntiguedad()>=5){
-         setAnt("Usado");
-         System.out.println("El vehiculo es: "+ getAnt());
-     }
-            
-    }
-    
-    
-    
-    
-    //metodos getter and setter
 
+    //metodos
+    public void calAntiguedad(int anoModelo) {
+        Calendar fechaA = Calendar.getInstance();
+        fechaA.get(Calendar.YEAR);
+        setAntiguedad(fechaA.get(Calendar.YEAR) - anoModelo);
+        if (getAntiguedad() > 0 && getAntiguedad() <= 1) {
+            setAnt("Nuevo");
+            System.out.println("El vehiculo es: " + getAnt());
+        } else if (getAntiguedad() > 1 && getAntiguedad() <= 4) {
+            setAnt("Medianamente usado");
+            System.out.println("El vehiculo es: " + getAnt());
+        } else if (getAntiguedad() >= 5) {
+            setAnt("Usado");
+            System.out.println("El vehiculo es: " + getAnt());
+        }
+
+    }
+
+    //metodos getter and setter
     public int getId() {
         return id;
     }
-
 
     public String getPlaca() {
         return placa;
@@ -147,5 +140,4 @@ public class Vehiculo {
         this.vehEnReparacion = vehEnReparacion;
     }
 
-    
 }
