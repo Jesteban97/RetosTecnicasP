@@ -14,6 +14,7 @@ public class Vehiculo {
     private int id;
     private String placa;
     private int antiguedad;
+    private String ant;
     private String modelo;
     private int anoModelo;
     private double precioHora;
@@ -21,10 +22,11 @@ public class Vehiculo {
     private String estadoVehiculo;
     private boolean vehEnReparacion;
     //constructores
-    public Vehiculo(int id, String placa, int antiguedad, String modelo, int anoModelo, double precioHora, String tipo, String estadoVehiculo, boolean vehEnReparacion) {
+    public Vehiculo(int id, String placa, int antiguedad,String ant, String modelo, int anoModelo, double precioHora, String tipo, String estadoVehiculo, boolean vehEnReparacion) {
         this.id = id;
         this.placa = placa;
         this.antiguedad = antiguedad;
+        this.ant = ant;
         this.modelo = modelo;
         this.anoModelo = anoModelo;
         this.precioHora = precioHora;
@@ -46,8 +48,26 @@ public class Vehiculo {
     //metodos
     public void calAntiguedad(int anoModelo){
     Calendar fechaA = Calendar.getInstance();
-    
+    fechaA.get(Calendar.YEAR);
+     setAntiguedad(fechaA.get(Calendar.YEAR)-anoModelo);
+     if(getAntiguedad()>0 && getAntiguedad()<=1){
+        setAnt("Nuevo");
+        System.out.println("El vehiculo es: "+ getAnt());
+     }
+     else if(getAntiguedad()>1 && getAntiguedad()<=4){
+         setAnt("Medianamente usado");
+         System.out.println("El vehiculo es: "+ getAnt());
+     }
+     else if(getAntiguedad()>=5){
+         setAnt("Usado");
+         System.out.println("El vehiculo es: "+ getAnt());
+     }
+            
     }
+    
+    
+    
+    
     //metodos getter and setter
 
     public int getId() {
@@ -89,6 +109,14 @@ public class Vehiculo {
 
     public double getPrecioHora() {
         return precioHora;
+    }
+
+    public String getAnt() {
+        return ant;
+    }
+
+    public void setAnt(String ant) {
+        this.ant = ant;
     }
 
     public void setPrecioHora(double precioHora) {

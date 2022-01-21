@@ -33,7 +33,10 @@ public class Seguro {
         this.valorPago = valorPago;
     }
     //metodos
-    
+    public void calCobertura(Calendar iniCobertura, Calendar finCobertura){
+        iniCobertura.getInstance();
+        iniCobertura.set();
+    }
     //metodos getter and setter
 
     public int getId() {
