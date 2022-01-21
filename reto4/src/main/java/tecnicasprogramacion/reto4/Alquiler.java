@@ -4,113 +4,118 @@
  * and open the template in the editor.
  */
 package tecnicasprogramacion.reto4;
+
 import java.util.Calendar;
+
 /**
  *
  * @author USUARIO
  */
 public class Alquiler {
-    //atributos
-    private int id;
-    private int idVehiculo;
-    private int vigenciaAlquiler;
-    private Calendar fechaIniAlquiler;
-    private Calendar fechaFinAlquiler;
-    private String tipoDoc;
-    private String numDoc;
-    private String nombre;
+
+    // Atributos:
+    private int id_alquiler;
+    private int id_vehiculo;
+    private Calendar inicio_alquiler = Calendar.getInstance();
+    private Calendar final_alquiler = Calendar.getInstance();
+    private String tipoId_cliente;
+    private int id_cliente;
+    private String nombre_cliente;
+    private double pago;
     private String descripcion;
-    private double valorPago;
-    //constructor
-    public Alquiler(int id, int idVehiculo, int vigenciaAlquiler, Calendar fechaIniAlquiler, Calendar fechaFinAlquiler, String tipoDoc, String numDoc, String nombre, String descripcion, double valorPago) {
-        this.id = id;
-        this.idVehiculo = idVehiculo;
-        this.vigenciaAlquiler = vigenciaAlquiler;
-        this.fechaIniAlquiler = fechaIniAlquiler;
-        this.fechaFinAlquiler = fechaFinAlquiler;
-        this.tipoDoc = tipoDoc;
-        this.numDoc = numDoc;
-        this.nombre = nombre;
+
+    // Constructor: 
+    public Alquiler(int id_alquiler, int id_vehiculo, String fecha_inicio, String fecha_final,
+            String tipoId_cliente, int id_cliente, String nombre_cliente, double pago, String descripcion) {
+
+        this.id_alquiler = id_alquiler;
+        this.id_vehiculo = id_vehiculo;
+        calibrarFecha(fecha_inicio, this.inicio_alquiler);
+        calibrarFecha(fecha_final, this.final_alquiler);
+        this.final_alquiler = final_alquiler;
+        this.tipoId_cliente = tipoId_cliente;
+        this.id_cliente = id_cliente;
+        this.nombre_cliente = nombre_cliente;
+        this.pago = pago;
         this.descripcion = descripcion;
-        this.valorPago = valorPago;
     }
-    //metodos
+
+    public Alquiler(int id_alquiler, int id_vehiculo, String fecha_final,
+            String tipoId_cliente, int id_cliente, String nombre_cliente, double pago, String descripcion) {
+
+        this.id_alquiler = id_alquiler;
+        this.id_vehiculo = id_vehiculo;
+        this.inicio_alquiler = Calendar.getInstance();
+        calibrarFecha(fecha_final, this.final_alquiler);
+        this.final_alquiler = final_alquiler;
+        this.tipoId_cliente = tipoId_cliente;
+        this.id_cliente = id_cliente;
+        this.nombre_cliente = nombre_cliente;
+        this.pago = pago;
+        this.descripcion = descripcion;
+    }
     
-    //metodos getter and setter
+    public Alquiler(int id_alquiler, int id_vehiculo, String fecha_final,
+            int id_cliente, String nombre_cliente, double pago) {
 
-    public int getId() {
-        return id;
+        this.id_alquiler = id_alquiler;
+        this.id_vehiculo = id_vehiculo;
+        this.inicio_alquiler = Calendar.getInstance();
+        calibrarFecha(fecha_final, this.final_alquiler);
+        this.tipoId_cliente = "Cedula de ciudadania";
+        this.id_cliente = id_cliente;
+        this.nombre_cliente = nombre_cliente;
+        this.pago = pago;
+        this.descripcion = "";
+    }
+    // Getters:
+
+    public int getId_alquiler() {
+        return id_alquiler;
     }
 
-    public int getIdVehiculo() {
-        return idVehiculo;
+    public int getId_vehiculo() {
+        return id_vehiculo;
     }
 
-    public int getVigenciaAlquiler() {
-        return vigenciaAlquiler;
+    public Calendar getInicio_alquiler() {
+        return inicio_alquiler;
     }
 
-    public void setVigenciaAlquiler(int vigenciaAlquiler) {
-        this.vigenciaAlquiler = vigenciaAlquiler;
+    public Calendar getFinal_alquiler() {
+        return final_alquiler;
     }
 
-    public Calendar getFechaIniAlquiler() {
-        return fechaIniAlquiler;
+    public String getTipoId_cliente() {
+        return tipoId_cliente;
     }
 
-    public void setFechaIniAlquiler(Calendar fechaIniAlquiler) {
-        this.fechaIniAlquiler = fechaIniAlquiler;
+    public int getId_cliente() {
+        return id_cliente;
     }
 
-    public Calendar getFechaFinAlquiler() {
-        return fechaFinAlquiler;
+    public String getNombre_cliente() {
+        return nombre_cliente;
     }
 
-    public void setFechaFinAlquiler(Calendar fechaFinAlquiler) {
-        this.fechaFinAlquiler = fechaFinAlquiler;
-    }
-
-
-    public String getTipoDoc() {
-        return tipoDoc;
-    }
-
-    public void setTipoDoc(String tipoDoc) {
-        this.tipoDoc = tipoDoc;
-    }
-
-    public String getNumDoc() {
-        return numDoc;
-    }
-
-    public void setNumDoc(String numDoc) {
-        this.numDoc = numDoc;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public double getPago() {
+        return pago;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public double getValorPago() {
-        return valorPago;
-    }
-
-    public void setValorPago(double valorPago) {
-        this.valorPago = valorPago;
-    }
-
     
-    
+
+    // Métodos:
+    private void calibrarFecha(String fecha, Calendar fecha_calibrar) {
+        String[] fecha_lista = fecha.split("-");
+        int[] fecha_lista_int = new int[5];
+        for (int i = 0; i < fecha_lista.length; i++) {
+            fecha_lista_int[i] = Integer.parseInt(fecha_lista[i]);
+        }
+
+        fecha_calibrar.set(fecha_lista_int[0], fecha_lista_int[1] - 1, fecha_lista_int[2], fecha_lista_int[3], fecha_lista_int[4]);
+    }
+
 }

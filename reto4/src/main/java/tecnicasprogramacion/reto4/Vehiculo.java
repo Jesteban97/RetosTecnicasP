@@ -1,151 +1,101 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tecnicasprogramacion.reto4;
+
 import java.util.Calendar;
-/**
- *
- * @author USUARIO
- */
+
 public class Vehiculo {
-    //atributos
-    private int id;
-    private String placa;
-    private int antiguedad;
-    private String ant;
-    private String modelo;
-    private int anoModelo;
-    private double precioHora;
-    private String tipo;
-    private String estadoVehiculo;
-    private boolean vehEnReparacion;
-    //constructores
-    public Vehiculo(int id, String placa, int antiguedad,String ant, String modelo, int anoModelo, double precioHora, String tipo, String estadoVehiculo, boolean vehEnReparacion) {
-        this.id = id;
-        this.placa = placa;
-        this.antiguedad = antiguedad;
-        this.ant = ant;
-        this.modelo = modelo;
-        this.anoModelo = anoModelo;
-        this.precioHora = precioHora;
-        this.tipo = tipo;
-        this.estadoVehiculo = estadoVehiculo;
-        this.vehEnReparacion = vehEnReparacion;
+
+    // Atributos:
+    private int         id_vehiculo;
+    private String      placa_vehiculo;
+    private String      descrip_vehiculo;
+    private String      tipo_vehiculo;
+    private String      modelo_vehiculo;
+    private int         anio_vehiculo;
+    private double      precio_hora;
+    
+    // Constructores:
+    public Vehiculo(int id_vehiculo, String placa_vehiculo, String descrip_vehiculo, 
+            String tipo_vehiculo, String modelo_vehiculo, int anio_vehiculo, double precio_hora) {
+        this.id_vehiculo = id_vehiculo;
+        this.placa_vehiculo = placa_vehiculo;
+        this.descrip_vehiculo = descrip_vehiculo;
+        this.tipo_vehiculo = tipo_vehiculo;
+        this.modelo_vehiculo = modelo_vehiculo;
+        this.anio_vehiculo = anio_vehiculo;
+        this.precio_hora = precio_hora;
     }
     
-    public Vehiculo(int id, int antiguedad,String modelo, int anoModelo, double precioHora, String tipo, String estadoVehiculo, boolean vehEnReparacion){
-        this.id = id;
-        this.antiguedad = antiguedad;
-        this.modelo = modelo;
-        this.anoModelo = anoModelo;
-        this.precioHora = precioHora;
-        this.tipo = tipo;
-        this.estadoVehiculo = estadoVehiculo;
-        this.vehEnReparacion = vehEnReparacion;
+    public Vehiculo(int id_vehiculo, String placa_vehiculo, String tipo_vehiculo, 
+            String modelo_vehiculo, int anio_vehiculo, double precio_hora) {
+        this.id_vehiculo = id_vehiculo;
+        this.placa_vehiculo = placa_vehiculo;
+        this.descrip_vehiculo = "";
+        this.tipo_vehiculo = tipo_vehiculo;
+        this.modelo_vehiculo = modelo_vehiculo;
+        this.anio_vehiculo = anio_vehiculo;
+        this.precio_hora = precio_hora;
     }
-    //metodos
-    public void calAntiguedad(int anoModelo){
-    Calendar fechaA = Calendar.getInstance();
-    fechaA.get(Calendar.YEAR);
-     setAntiguedad(fechaA.get(Calendar.YEAR)-anoModelo);
-     if(getAntiguedad()>0 && getAntiguedad()<=1){
-        setAnt("Nuevo");
-        System.out.println("El vehiculo es: "+ getAnt());
-     }
-     else if(getAntiguedad()>1 && getAntiguedad()<=4){
-         setAnt("Medianamente usado");
-         System.out.println("El vehiculo es: "+ getAnt());
-     }
-     else if(getAntiguedad()>=5){
-         setAnt("Usado");
-         System.out.println("El vehiculo es: "+ getAnt());
-     }
-            
+    
+    //Getter:
+
+    public int getId_vehiculo() {
+        return id_vehiculo;
+    }
+
+    public String getPlaca_vehiculo() {
+        return placa_vehiculo;
+    }
+
+    public String getTipo_vehiculo() {
+        return tipo_vehiculo;
+    }
+
+    public String getModelo_vehiculo() {
+        return modelo_vehiculo;
+    }
+
+    public int getAnio_vehiculo() {
+        return anio_vehiculo;
+    }
+
+    public double getPrecio_hora() {
+        return precio_hora;
     }
     
     
+    // Métodos: 
+    public void antiguedadaVehiculo(){
+        int anio_actual = 2022;
+        int antiguedad = anio_actual - this.anio_vehiculo;
+        
+        if(antiguedad >= 0 && antiguedad <= 1) {
+            System.out.println("El vehiculo: " + this.modelo_vehiculo + " y con placa: " 
+                    + this.placa_vehiculo + ", es nuevo");
+        }
+        
+        if(antiguedad >= 2 && antiguedad <= 4) {
+            System.out.println("El vehiculo: " + this.modelo_vehiculo + " y con placa: " 
+                    + this.placa_vehiculo + ", es medianamente usado");
+        }
+        
+        if(antiguedad >= 5) {
+            System.out.println("El vehiculo: " + this.modelo_vehiculo + " y con placa: " 
+                    + this.placa_vehiculo + ", es usado");
+        }
+    }
     
+    public void infoVehiculo() {
+        System.out.println("********* INFORMACION DEL VEHICULO *********");
+        System.out.println("Tipo de vehiculo: " + this.tipo_vehiculo);
+        System.out.println("Modelo: " + this.modelo_vehiculo);
+        System.out.println("Placa: " + this.placa_vehiculo);
+        System.out.println("Año: " + this.anio_vehiculo);
+        System.out.println("Descripción: " + this.descrip_vehiculo);
+        System.out.println("Precio de alquilaje: " + this.precio_hora + " por hora");
+        System.out.println("********************************************");
+    }
     
-    //metodos getter and setter
-
-    public int getId() {
-        return id;
+    public void modificarDescripcion(String descripcion) {
+        this.descrip_vehiculo = descripcion;
     }
-
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public int getAntiguedad() {
-        return antiguedad;
-    }
-
-    public void setAntiguedad(int antiguedad) {
-        this.antiguedad = antiguedad;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public int getAnoModelo() {
-        return anoModelo;
-    }
-
-    public void setAnoModelo(int anoModelo) {
-        this.anoModelo = anoModelo;
-    }
-
-    public double getPrecioHora() {
-        return precioHora;
-    }
-
-    public String getAnt() {
-        return ant;
-    }
-
-    public void setAnt(String ant) {
-        this.ant = ant;
-    }
-
-    public void setPrecioHora(double precioHora) {
-        this.precioHora = precioHora;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getEstadoVehiculo() {
-        return estadoVehiculo;
-    }
-
-    public void setEstadoVehiculo(String estadoVehiculo) {
-        this.estadoVehiculo = estadoVehiculo;
-    }
-
-    public boolean isVehEnReparacion() {
-        return vehEnReparacion;
-    }
-
-    public void setVehEnReparacion(boolean vehEnReparacion) {
-        this.vehEnReparacion = vehEnReparacion;
-    }
-
-    
 }
