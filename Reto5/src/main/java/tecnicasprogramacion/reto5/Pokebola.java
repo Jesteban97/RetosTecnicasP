@@ -2,7 +2,6 @@
 package tecnicasprogramacion.reto5;
 
 public class Pokebola {
-    
     // Atributos: 
     private String tamanio;
     private Pokemon pokemonAtrapado;
