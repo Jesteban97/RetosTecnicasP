@@ -2,50 +2,47 @@
 package tecnicasprogramacion.reto5;
 
 public class Pokebola {
-    //atributos
-    private String tamaño;
-    private Pokemon Pokemon;
-    private boolean vacia = false;
-    //constructor
+    
+    // Atributos: 
+    private String tamanio;
+    private Pokemon pokemonAtrapado;
+    private boolean vacia;
+    
+    // Constructor:
+    public Pokebola(String tamanio, Pokemon pokemonAtrapado) {
+        this.tamanio = tamanio;
+        this.pokemonAtrapado = pokemonAtrapado;
+        this.vacia = false;
+    }
 
-    public Pokebola(String tamaño, Pokemon Pokemon, boolean vacia) {
-        this.tamaño = tamaño;
-        this.Pokemon = Pokemon;
-        this.vacia = vacia;
+    public Pokebola() {
+        this.pokemonAtrapado = null;
+        this.tamanio = "pequeña";
+        this.vacia = true;
     }
     
-    //metodos
-    public void Atrapar(Pokemon x){
-        
-    }
-    
-    public void Liberar(Pokemon x){
-        
-    }
-    //getter and setter
-
-    public String getTamaño() {
-        return tamaño;
+    // Getters:
+    public String getTamanio() {
+        return tamanio;
     }
 
-    public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;
-    }
-
-    public Pokemon getPokemon() {
-        return Pokemon;
-    }
-
-    public void setPokemon(Pokemon Pokemon) {
-        this.Pokemon = Pokemon;
+    public Pokemon getPokemonAtrapado() {
+        return pokemonAtrapado;
     }
 
     public boolean isVacia() {
         return vacia;
     }
+    
+    // Metodos
+    public void atrapar(Pokemon poke){
+        this.pokemonAtrapado = poke;
+        System.out.println("El pokemon ha sido atrapado!");
 
-    public void setVacia(boolean vacia) {
-        this.vacia = vacia;
     }
     
+    public void liberar() {
+        this.pokemonAtrapado = null;
+        System.out.println("El pokemon ha sido liberado!");
+    }
 }

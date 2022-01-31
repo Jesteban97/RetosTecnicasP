@@ -3,56 +3,52 @@ package tecnicasprogramacion.reto5;
 
 //atributos
 public class Charmeleon extends Pokemon {
-    private String name="Charmeleon";
-    private byte nivel=1;
-    private int vida=100; 
- //constructor
-
+    
+    // Atributos:
+    private String name;
+    private byte nivel;
+    private int vida;
+    
+    // Constructores:
     public Charmeleon() {
+        this.name = "Charmeleon";
+        this.nivel =  1;
+        this.vida = 100;
     }
     
-    
-    public Charmeleon(String name,byte nivel,int vida) {
+    public Charmeleon(String name, byte nivel, int vida) {
         this.name = name;
-        this.nivel=nivel;
-        this.vida=vida;
+        this.nivel = nivel;
+        this.vida = vida;
     }
-
-//metodos
     
-    @Override
-    public Pokemon Evolucionar(Pokemon x){
-      x =new Charizard(getName(),getNivel(),getVida());
-        return x;
-    }
-    @Override
-    public String Gritar(){
-      String grito="Charmeleon!";
-      return grito;
-    }
-//gets and sets
+    // Getters:
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public byte getNivel() {
         return nivel;
     }
 
-    public void setNivel(byte nivel) {
-        this.nivel = nivel;
-    }
-
     public int getVida() {
         return vida;
     }
 
-    public void setVida(int vida) {
-        this.vida = vida;
-    }    
-   
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    // Metodos:
+    @Override
+    public Pokemon evolucionar() {
+        return new Charizard(this.name, this.nivel, this.vida);
+    }
+
+    @Override
+    public String gritar() {
+        return "Charmeleon!";
+    }
+    
+    
 }
