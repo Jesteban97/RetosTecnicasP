@@ -28,6 +28,10 @@ public class Cliente {
     public int getNumeroCedula() {
         return numeroCedula;
     }
+
+    public ArrayList<Articulo> getArticulos() {
+        return articulos;
+    }
     
     // Metodos:
     public void informeCliente(){
@@ -37,6 +41,25 @@ public class Cliente {
         System.out.println("NACIONALIDAD: " + this.nacionalidad);
         System.out.println("NUMERO TELEFONICO: " + this.numeroTelefonico);
         System.out.println("****************************************************\n");
+    }
+    
+    public void añadirArticulo(Articulo articulo){
+        if(articulo != null){
+            this.articulos.add(articulo);
+            System.out.println("El articulo ha sido agregado.");        
+        } else {
+            System.out.println("El valor nulo no es permitido.");
+        }
+    }
+    
+    public void eliminarArticulo(Articulo articulo){
+        boolean existeArticulo = this.articulos.contains(articulo);
+        if(existeArticulo) {
+            this.articulos.remove(articulo);
+            System.out.println("Articulo eliminado.");
+        } else{
+            System.out.println("El articulo no puede ser borrado.");
+        }
     }
     
 }

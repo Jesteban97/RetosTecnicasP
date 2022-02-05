@@ -16,9 +16,13 @@ public class Main {
         articulo1.informacionArticulo();
         cliente1.informeCliente();
         
+        System.out.println("---------------------------------------");
         banco.agregarCliente(cliente1);
+        banco.infoCliente(cliente1.getNumeroCedula());
         banco.agregarCliente(cliente1);
         banco.quitarCliente(cliente1);
+        banco.infoCliente(cliente1.getNumeroCedula());
+    
     }
    
 }
