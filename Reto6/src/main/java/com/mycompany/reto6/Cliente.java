@@ -10,7 +10,7 @@ public class Cliente {
     private String nacionalidad;
     private int numeroCedula;
     private int numeroTelefonico;
-    ArrayList<Articulo> articulos;
+    ArrayList<Articulo> articulos = new ArrayList<>();
     
     // Constructor:
     public Cliente(String nombre, String nacionalidad, int numeroCedula, int numeroTelefonico) {
