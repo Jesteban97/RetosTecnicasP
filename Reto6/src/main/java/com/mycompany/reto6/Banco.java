@@ -20,6 +20,10 @@ public class Banco {
     public String getNombre() {
         return nombre;
     }
+
+    public Hashtable<Integer, Cliente> getClientes() {
+        return clientes;
+    }
     
     // Metodos:
     
