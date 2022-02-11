@@ -13,16 +13,6 @@ public class TramoAsfalto extends TramoGenerico {
     private boolean prohibidoAdelantar;
 
     /*------------------------------------CONSTRUCTORES------------------------------------*/
-    
-    public TramoAsfalto(double xInicial, double yInicial, double xFinal, double yFinal) {
-        this.xInicial = xInicial;
-        this.yInicial = yInicial;
-        this.xFinal = xFinal;
-        this.yFinal = yFinal;
-        this.velocidadMax = 80;
-        this.prohibidoAdelantar = true;
-    }
-    
 
     public TramoAsfalto(double xInicial, double yInicial, double xFinal, double yFinal,
             String proveedorAsfalto, double velocidadMax, boolean prohibidoAdelantar) {
@@ -32,48 +22,6 @@ public class TramoAsfalto extends TramoGenerico {
         this.yFinal = yFinal;
         this.proveedorAsfalto = proveedorAsfalto;
         this.velocidadMax = velocidadMax;
-        this.prohibidoAdelantar = prohibidoAdelantar;
-    }
-
-    /*------------------------------------GETTERS Y SETTERS------------------------------------*/
-
-    public double getxInicial() {
-        return xInicial;
-    }
-
-    public double getyInicial() {
-        return yInicial;
-    }
-
-    public double getxFinal() {
-        return xFinal;
-    }
-
-    public double getyFinal() {
-        return yFinal;
-    }
-
-    public String getProveedorAsfalto() {
-        return proveedorAsfalto;
-    }
-
-    public double getVelocidadMax() {
-        return velocidadMax;
-    }
-
-    public boolean isProhibidoAdelantar() {
-        return prohibidoAdelantar;
-    }
-
-    public void setProveedorAsfalto(String proveedorAsfalto) {
-        this.proveedorAsfalto = proveedorAsfalto;
-    }
-
-    public void setVelocidadMax(double velocidadMax) {
-        this.velocidadMax = velocidadMax;
-    }
-
-    public void setProhibidoAdelantar(boolean prohibidoAdelantar) {
         this.prohibidoAdelantar = prohibidoAdelantar;
     }
 
