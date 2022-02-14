@@ -53,6 +53,7 @@ public class Main {
         double volumenCarreteraAsfalto = carretera.volumenAsfaltoTotal();
         System.out.println(volumenCarreteraAsfalto);
         double volumenCarreteraSinAsfalto = carretera.volumenSinAsfaltoTotal();
+        boolean tramosConectados = carretera.tramosConectados();
         
         System.out.println("El volumen del tramo 1 es: " + String.format("%.2f", volumenTramo1));
         System.out.println("El volumen del tramo 2 es: " + String.format("%.2f", volumenTramo2));
@@ -62,6 +63,8 @@ public class Main {
                 String.format("%.2f", volumenCarreteraAsfalto));
         System.out.println("El volumen total de material sin asfalto a utilizar en la carretera es: " 
                 + String.format("%.2f", volumenCarreteraSinAsfalto));
+        System.out.println("Los tramos estan conectados: " 
+                + String.format("%.2f", tramosConectados));
     }
     
 }

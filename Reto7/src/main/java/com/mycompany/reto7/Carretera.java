@@ -67,10 +67,20 @@ public class Carretera {
     }
     
     public boolean tramosConectados(){
-        boolean conectado;
-        for(TramoGenerico tramo : tramos){
-            if(tramo.getXFinal()== tramo.getXInicial() && tramo.getYFinal()== tramo.getYInicial())
-        }
+        boolean conectado=false;
+        int count = 0; 		
+      while (tramos.size() > count) {
+	 if(tramos.get(count).getXFinal()== tramos.get(count+1).getXInicial() && tramos.get(count).getYFinal()== tramos.get(count+1).getYInicial()){
+             conectado = true;
+            count++;
+            continue;
+         }
+         else{
+             conectado = false;
+            break;
+         }
+      }
+        
         return conectado;
     }
     
