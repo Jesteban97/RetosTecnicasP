@@ -53,5 +53,29 @@ public class TramoAsfalto extends TramoGenerico {
         
         return volumenFinal;
     }
+
+    @Override
+    public double getXInicial() {
+        return xInicial;
+    }
+
+    
+
+    @Override
+    public double getYInicial() {
+        return yInicial;
+    }
+
+    @Override
+    public double getXFinal() {
+        return xFinal;
+    }
+
+    @Override
+    public double getYFinal() {
+        return yFinal;
+    }
+
+  
     
 }

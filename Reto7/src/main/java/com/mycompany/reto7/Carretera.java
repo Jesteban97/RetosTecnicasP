@@ -49,7 +49,7 @@ public class Carretera {
     public double volumenAsfaltoTotal() {
         double total = 0;
         for (TramoGenerico tramo : tramos) {
-            if(tramo.getClass().getName().equals("Carretera: com.mycompany.reto7.TramoAsfalto")){
+            if(TramoAsfalto.class.isInstance(tramo)){
                 total += tramo.volumen();
             }           
         }
@@ -59,11 +59,19 @@ public class Carretera {
     public double volumenSinAsfaltoTotal() {
         double total = 0;
         for (TramoGenerico tramo : tramos) {
-            if(tramo.getClass().getName().equals("Carretera: com.mycompany.reto7.TramoSinAsfaltar")){
+            if(TramoSinAsfaltar.class.isInstance(tramo)){
                 total += tramo.volumen();
             }           
         }
         return total;
+    }
+    
+    public boolean tramosConectados(){
+        boolean conectado;
+        for(TramoGenerico tramo : tramos){
+            if(tramo.getXFinal()== tramo.getXInicial() && tramo.getYFinal()== tramo.getYInicial())
+        }
+        return conectado;
     }
     
 }

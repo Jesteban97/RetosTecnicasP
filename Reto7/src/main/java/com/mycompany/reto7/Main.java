@@ -16,11 +16,14 @@ public class Main {
         Carretera carretera = new Carretera();
         
         TramoGenerico tramo1 = new TramoAsfalto(1, 1, 2, 2, "Pepito", 80, true);
-        TramoGenerico tramo2 = new TramoSinAsfaltar(2, 3, 4, 5, "piedra", 0.35);
-        
+        TramoGenerico tramo2 = new TramoSinAsfaltar(2, 2, 5, 5, "piedra", 0.35);
+        TramoGenerico tramo3 = new TramoAsfalto(5, 5, 7, 7, "Pepito", 60, true);
+        TramoGenerico tramo4 = new TramoSinAsfaltar(7, 7, 8, 8, "arena", 0.35);
         // Método para añadir tramos de diferentes tipos a carretera.
         carretera.añadirTramo(tramo1);
         carretera.añadirTramo(tramo2);
+        carretera.añadirTramo(tramo3);
+        carretera.añadirTramo(tramo4);
         
         System.out.println("Contenido de carretera: " + carretera.getTramos().toString());
         System.out.println("+++++++++++++++++++++++++++++++++++++++");
@@ -48,6 +51,7 @@ public class Main {
         double volumenTramo2 = tramo2.volumen();
         double volumenCarretera = carretera.volumenMaterialTotal();
         double volumenCarreteraAsfalto = carretera.volumenAsfaltoTotal();
+        System.out.println(volumenCarreteraAsfalto);
         double volumenCarreteraSinAsfalto = carretera.volumenSinAsfaltoTotal();
         
         System.out.println("El volumen del tramo 1 es: " + String.format("%.2f", volumenTramo1));
