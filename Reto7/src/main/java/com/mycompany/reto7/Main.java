@@ -63,8 +63,10 @@ public class Main {
                 String.format("%.2f", volumenCarreteraAsfalto));
         System.out.println("El volumen total de material sin asfalto a utilizar en la carretera es: " 
                 + String.format("%.2f", volumenCarreteraSinAsfalto));
+        
+        // Método para saber si los tramos están conectados entre sí
         System.out.println("Los tramos estan conectados: " 
-                + String.format("%.2f", tramosConectados));
+                + tramosConectados);
     }
     
 }
