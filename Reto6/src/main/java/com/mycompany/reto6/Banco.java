@@ -3,7 +3,6 @@ package com.mycompany.reto6;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Map;
 
 public class Banco {
     
