@@ -15,7 +15,8 @@ public class Reto9 {
         
         String rutaArchivoOriginal = "src\\main\\java\\com\\mycompany\\reto9\\archivos\\BTC-USD.csv";
         String rutaArchivoModificado = "src\\main\\java\\com\\mycompany\\reto9\\archivos\\NEW-BTC-USD.csv"; 
-        Path miRuta = Paths.get(rutaArchivoOriginal);
+        Path rutaArchOriginal = Paths.get(rutaArchivoOriginal);
+        Path rutaArchMod = Paths.get(rutaArchivoModificado);
         
         List<String> lineasArchivo; // Contiene la información del archivo BTC-USD.
         String[] datosLineaActual;  // Su finalidad es separar cada uno de los datos que hay en c/u de las lineas de BTC-USD.
@@ -24,7 +25,7 @@ public class Reto9 {
         String lineaTextoModificado = ""; // Esta variable almacena temporalmente la fecha que se esta leyendo junto al concepto.
         
         try {
-            lineasArchivo = Files.readAllLines(miRuta);
+            lineasArchivo = Files.readAllLines(rutaArchOriginal);
             
             int cont = 0;
             for (String lineaActual : lineasArchivo) {
@@ -33,7 +34,7 @@ public class Reto9 {
                     conceptoClose = conceptoPrecioCierre(datosLineaActual[4]);
                     lineaTextoModificado = datosLineaActual[0] + "\t" + conceptoClose;
                     lineasArchivoModificado.add(lineaTextoModificado);
-                    guardarPorLineas(rutaArchivoModificado, lineasArchivoModificado);
+                    escribirArchivo(rutaArchMod, lineasArchivoModificado);
                 }
                 cont++;
             }
@@ -68,4 +69,14 @@ public class Reto9 {
             System.out.println(e.getMessage());
         }
     }
+    
+    public static void escribirArchivo(Path ruta, ArrayList<String> cadena) throws IOException {
+        String informeCompleto = "";
+        for (String linea : cadena) {
+            informeCompleto = informeCompleto + linea + "\n";
+        }
+        byte[] bytesCadena = informeCompleto.getBytes();
+        Files.write(ruta, bytesCadena);
+    }
+
 }
