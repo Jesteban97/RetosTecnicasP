@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Reto9 {
@@ -36,6 +37,10 @@ public class Reto9 {
         String[] datosLineaActual;  // Su finalidad es separar cada uno de los datos que hay en c/u de las lineas de BTC-USD.
         ArrayList<String> lineasArchivoModificado = new ArrayList(); // Guarda las fechas que se esta leyendo junto con el concepto.
         ArrayList<Double> preciosDeApertura = new ArrayList();
+        ArrayList<Double> preciosDeCierre = new ArrayList();
+        ArrayList<Double> preciosHigh = new ArrayList();
+        ArrayList<Double> preciosLow = new ArrayList();
+        ArrayList<String> fechas = new ArrayList();
         String conceptoClose = ""; // Aquí se guarda la respuesta sobre el precio de cierre (close).
         String lineaTextoModificado = ""; // Esta variable almacena temporalmente la fecha que se esta leyendo junto al concepto.
         
@@ -49,7 +54,11 @@ public class Reto9 {
                     conceptoClose = conceptoPrecioCierre(datosLineaActual[4]);
                     lineaTextoModificado = datosLineaActual[0] + "\t" + conceptoClose;
                     lineasArchivoModificado.add(lineaTextoModificado);
+                    fechas.add(datosLineaActual[0]);
                     preciosDeApertura.add(Double.parseDouble(datosLineaActual[1]));
+                    preciosDeCierre.add(Double.parseDouble(datosLineaActual[4]));
+                    preciosHigh.add(Double.parseDouble(datosLineaActual[2]));
+                    preciosLow.add(Double.parseDouble(datosLineaActual[3]));
                     escribirArchivo(rutaArchMod, lineasArchivoModificado);
                 }
                 cont++;
@@ -60,7 +69,8 @@ public class Reto9 {
         
         System.out.println("El promedio de los precios de apertura es: " + promedio(preciosDeApertura));
         System.out.println("La desviacion estandar de los precios de apertura es: " + desviacionEstandar(preciosDeApertura));
-        
+        buscarPrecioAlto(preciosHigh,fechas);
+        buscarPrecioBajo(preciosLow,fechas);
     }
     
     public static String conceptoPrecioCierre(String valor) {
@@ -115,7 +125,26 @@ public class Reto9 {
         for (double numero : listaDeNumeros) {
             subtotal += Math.pow((numero - promedio), 2);
         }
-        total = Math.pow(subtotal, 1/2)/listaDeNumeros.size();
+        total = Math.pow((subtotal/(listaDeNumeros.size()-1)), 0.5);
         return total;
+    }
+    public static void buscarPrecioAlto(ArrayList<Double> listaHigh,ArrayList<String> fechas){
+        int count= 0;
+        double maxHigh = Collections.max(listaHigh);
+        while( listaHigh.get(count) != maxHigh  ){
+            count ++;
+        }
+        String fecha=fechas.get(count);
+        System.out.println("el precio máximo fue: "+maxHigh+" y se dio en la fecha: "+fecha);
+    }
+    
+    public static void buscarPrecioBajo(ArrayList<Double> listaLow,ArrayList<String> fechas){
+        int count= 0;
+        double min = Collections.min(listaLow);
+        while( listaLow.get(count) != min  ){
+            count ++;
+        }
+        String fecha=fechas.get(count);
+        System.out.println("el precio mínimo fue de: "+min+" y se dio en la fecha: "+fecha);
     }
 }
