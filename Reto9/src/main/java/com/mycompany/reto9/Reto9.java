@@ -46,6 +46,7 @@ public class Reto9 {
         
         try {
             lineasArchivo = Files.readAllLines(rutaArchOriginal);
+            System.out.println(lineasArchivo);
             
             int cont = 0;
             for (String lineaActual : lineasArchivo) {

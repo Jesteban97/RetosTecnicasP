@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="720.0" maxWidth="1020.0" minHeight="720.0" minWidth="1020.0" prefHeight="720.0" prefWidth="1020.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.reto11.PrimaryController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+      <SVGPath content="M 37.1406 14.2188 C 29.2344 15.2188 22.4531 19.4219 18.2344 25.9375 C 12.6875 34.5156 12.6875 45.4844 18.2344 54.0625 C 23.5469 62.2656 33.0938 66.8281 42.7813 65.7656 C 51.7188 64.7969 59.6094 59.1719 63.4375 51.0469 C 67.2656 42.9063 66.625 33.4531 61.75 25.9375 C 57.8281 19.875 51.5625 15.7188 44.4531 14.4531 C 42.7969 14.1563 38.6563 14.0313 37.1406 14.2188 Z M 42.3438 22.8125 L 42.3438 25.1563 L 42.7813 25.25 C 46.0625 25.9688 48.5625 28.2969 49.4219 31.4219 C 49.5625 31.875 49.7031 32.5938 49.7656 33 L 49.8594 33.75 L 45.1563 33.75 L 45.0625 33.125 C 44.9063 32.125 44.0938 30.9375 43.2188 30.3906 L 42.4531 29.9219 L 37.5469 29.9219 L 36.7813 30.3906 C 35.875 30.9531 35.0938 32.1563 34.9219 33.2031 C 34.7031 34.7188 35.6406 36.4688 37.0938 37.2344 C 37.6406 37.5156 38.125 37.5781 40.3125 37.6719 C 43.1719 37.7969 43.6406 37.8906 45.2344 38.7188 C 47.9844 40.1563 49.7344 43.0625 49.7344 46.25 C 49.75 50.3906 46.9219 53.8438 42.7813 54.75 L 42.3438 54.8438 L 42.3438 59.5313 L 37.6563 59.5313 L 37.6563 54.8438 L 37.2344 54.75 C 33.9375 54.0313 31.4375 51.7031 30.5781 48.5781 C 30.4375 48.125 30.2969 47.4063 30.2344 46.9844 L 30.1406 46.25 L 34.8438 46.25 L 34.9375 46.875 C 35.0938 47.875 35.9063 49.0625 36.7813 49.6094 C 37.5313 50.0625 37.625 50.0781 39.6719 50.125 C 40.9063 50.1563 42.0313 50.1094 42.3594 50.0156 C 43.875 49.5625 45.0469 48 45.0625 46.4219 C 45.0625 45.2813 44.7813 44.4688 44.0938 43.7188 C 43.0938 42.6094 42.6094 42.4531 39.6875 42.3281 C 37.9063 42.25 36.875 42.1406 36.3281 41.9531 C 32.0625 40.4844 29.625 36.5156 30.375 32.2656 C 30.9844 28.7656 33.6406 26.0313 37.2344 25.25 L 37.6563 25.1563 L 37.6563 20.4688 L 42.3438 20.4688 Z M 42.3438 22.8125" fill="#efb810" nodeOrientation="LEFT_TO_RIGHT" scaleX="1.25" scaleY="1.25" stroke="#70707000" strokeType="INSIDE" strokeWidth="2.0" translateY="-132.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin></SVGPath>
+      <TableView fx:id="tablaPrecios" prefHeight="222.0" prefWidth="980.0" translateY="-129.0">
+        <columns>
+          <TableColumn fx:id="colFecha" prefWidth="93.0" text="Fecha" />
+          <TableColumn fx:id="colPrecApert" prefWidth="162.0" text="Precio Apert" />
+            <TableColumn fx:id="colPrecAlto" prefWidth="126.0" text="Precio Alto" />
+            <TableColumn fx:id="colPrecBajo" prefWidth="138.0" text="Precio Bajo" />
+            <TableColumn fx:id="colPrecCierre" prefWidth="140.0" text="Precio Cierre" />
+            <TableColumn fx:id="colPrecCierreAdj" prefWidth="152.0" text="Precio Cierre A" />
+            <TableColumn fx:id="colVolTransado" prefWidth="168.0" text="Vol Transado" />
+        </columns>
+      </TableView>
+      <HBox alignment="TOP_CENTER" translateY="-122.0" VBox.vgrow="NEVER">
+         <children>
+            <Button fx:id="btPromPrecCierre" mnemonicParsing="false" onAction="#promPrecCierre" text="Promedio de los precios de cierre" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold Italic" size="11.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btDesvEstandar" mnemonicParsing="false" onAction="#desviacionEstandarCierre" text="Desviacion estandar precios de cierre" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold Italic" size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btMayorPrecio" mnemonicParsing="false" onAction="#calcularMayorPrecio" text="Mayor precio de bitcoin" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold Italic" size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btMenorPrecio" mnemonicParsing="false" onAction="#calcularMenorPrecio" text="Menor precio de bitcoin" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold Italic" size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="980.0" translateY="-118.0" VBox.vgrow="NEVER">
+         <children>
+            <Label fx:id="txtRespuesta" alignment="CENTER" contentDisplay="RIGHT" HBox.hgrow="NEVER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+    </children>
+</VBox>
