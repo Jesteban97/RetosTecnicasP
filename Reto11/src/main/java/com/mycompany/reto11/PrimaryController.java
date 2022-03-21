@@ -10,6 +10,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -18,7 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PrimaryController implements Initializable {
-
+    @FXML
+    private LineChart <Number, PrecioBtcUsd > lineChart;
     @FXML
     private TableView<PrecioBtcUsd> tablaPrecios;
     
@@ -158,6 +161,15 @@ public class PrimaryController implements Initializable {
         double total = subtotal / tamañoElementos;
         
         return  total;
+    }
+    
+    private void llenarGrafico(ActionEvent event){
+        lineChart.getData().clear();
+        XYChart.Series<Number, PrecioBtcUsd > series = new XYChart.Series<Number, PrecioBtcUsd >();
+        for (int i=0;i<listaPrecios.size();i=i+5) {
+            series.getData().add(new XYChart.Data<Number, PrecioBtcUsd >(i,listaPrecios.get(i)));
+    }
+        lineChart.getData().add(series);
     }
     
 }
