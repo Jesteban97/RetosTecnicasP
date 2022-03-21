@@ -20,8 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PrimaryController implements Initializable {
-    @FXML
-    private LineChart <Number, PrecioBtcUsd > lineChart;
+    
     @FXML
     private TableView<PrecioBtcUsd> tablaPrecios;
     
@@ -77,7 +76,8 @@ public class PrimaryController implements Initializable {
         }
        
     }
-    
+    @FXML
+    private LineChart <String, Double > lineChart;
     @FXML
     private void promPrecCierre(ActionEvent event){
         
@@ -149,6 +149,15 @@ public class PrimaryController implements Initializable {
         this.txtRespuesta.setText("Precio Menor: " + precioMenor + "\n Fecha: " + fechaPrecioMenor);
         
     }
+    @FXML
+    private void llenarGrafico(ActionEvent event){
+        lineChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<String, Double>();
+        for (int i=0;i<listaPrecios.size();i=i+5) {
+            series.getData().add(new XYChart.Data<String, Double>(String.valueOf(i),listaPrecios.get(i).getPrecioCierre()));
+    }
+        lineChart.getData().add(series);
+    }
     
     private double promedio(){
         int tamañoElementos = listaPrecios.size();
@@ -163,13 +172,5 @@ public class PrimaryController implements Initializable {
         return  total;
     }
     
-    private void llenarGrafico(ActionEvent event){
-        lineChart.getData().clear();
-        XYChart.Series<Number, PrecioBtcUsd > series = new XYChart.Series<Number, PrecioBtcUsd >();
-        for (int i=0;i<listaPrecios.size();i=i+5) {
-            series.getData().add(new XYChart.Data<Number, PrecioBtcUsd >(i,listaPrecios.get(i)));
-    }
-        lineChart.getData().add(series);
-    }
     
 }

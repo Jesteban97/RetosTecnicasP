@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="720.0" maxWidth="1020.0" minHeight="720.0" minWidth="1020.0" prefHeight="720.0" prefWidth="1020.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.reto11.PrimaryController">
+<VBox alignment="CENTER" maxHeight="720.0" maxWidth="1020.0" minHeight="674.0" minWidth="855.0" prefHeight="674.0" prefWidth="855.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.reto11.PrimaryController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -22,7 +22,7 @@
          <VBox.margin>
             <Insets />
          </VBox.margin></SVGPath>
-      <TableView fx:id="tablaPrecios" prefHeight="222.0" prefWidth="980.0" translateY="-129.0">
+      <TableView fx:id="tablaPrecios" prefHeight="71.0" prefWidth="797.0" translateY="-129.0">
         <columns>
           <TableColumn fx:id="colFecha" prefWidth="93.0" text="Fecha" />
           <TableColumn fx:id="colPrecApert" prefWidth="162.0" text="Precio Apert" />
@@ -35,10 +35,13 @@
       </TableView>
       <HBox alignment="TOP_CENTER" translateY="-122.0" VBox.vgrow="NEVER">
          <children>
-            <Button fx:id="lineChart" mnemonicParsing="false" text="ver grafico">
+            <Button mnemonicParsing="false" onAction="#llenarGrafico" text="ver grafico">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Arial Bold Italic" size="11.0" />
+               </font>
             </Button>
             <Button fx:id="btPromPrecCierre" mnemonicParsing="false" onAction="#promPrecCierre" text="Promedio de los precios de cierre" textAlignment="CENTER">
                <font>
@@ -77,16 +80,16 @@
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="980.0" translateY="-118.0" VBox.vgrow="NEVER">
+      <HBox alignment="CENTER" prefHeight="54.0" prefWidth="772.0" translateY="-118.0" VBox.vgrow="NEVER">
          <children>
-            <Label fx:id="txtRespuesta" alignment="CENTER" contentDisplay="RIGHT" HBox.hgrow="NEVER">
+            <Label fx:id="txtRespuesta" alignment="CENTER" contentDisplay="RIGHT" prefHeight="54.0" prefWidth="446.0" HBox.hgrow="NEVER">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <LineChart>
+      <LineChart fx:id="lineChart" prefHeight="93.0" prefWidth="815.0" title="Resumen Precios">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
