@@ -1,0 +1,94 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-image: linear-gradient(to right top, #4b4453, #3f3b46, #333138, #29282c, #1f1f1f);
+   color: white;
+   font-family: 'Roboto', sans-serif;
+}
+
+.main {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.inscripcion {
+   border: 2px solid white;
+   width: 40%;
+   min-width: 320px;
+   height: 80%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px 0;
+   color: #29282c;
+   background-color: rgb(255, 255, 255);
+   border-radius: 10px;
+   box-shadow: 4px 6px 14px -1px rgba(31, 30, 30, 0.81);
+   overflow: scroll;
+}
+
+.inscripcion::-webkit-scrollbar {
+   width: 10px;
+   height: 50%;
+}
+
+.inscripcion::-webkit-scrollbar-thumb {
+   background-color: #29282c;
+   border: 5px;
+   border-radius: 5px;
+   opacity: 50%;
+}
+
+.inscripcion__header {
+   margin-bottom: 20px;
+   text-align: center;
+}
+
+.inscripcion__formulario {
+   display: flex;
+   flex-direction: column;
+   width: 80%;
+}
+
+.inscripcion__formulario label {
+   margin-bottom: 10px;
+}
+
+.inscripcion__input {
+   padding: 5px;
+   border: 1px solid #29282c;
+   border-radius: 5px;
+   outline: none;
+   margin-bottom: 10px;
+   font-family: 'Roboto', sans-serif;
+}
+
+#pregunta1[type="checkbox"] {
+   width: 20px;
+   height: 20px;
+}
+
+#fecha_nacimiento {
+   width: 100%;   
+}
+
+#enviar {
+   margin: 10px 0;
+   outline: none;
+   padding: 10px;
+   cursor: pointer;
+   background-color: transparent;
+}
+
+#enviar:hover {
+   background-color: #29282c;
+   color: white;
+   border: 1px solid transparent;
+   transition: 0.5s;
+}
